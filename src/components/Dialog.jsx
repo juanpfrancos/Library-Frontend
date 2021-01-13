@@ -115,8 +115,8 @@ export default function Dial() {
                   </CardContent>
                 </CardActionArea>
                 <BottomNavigation>
-                  <BottomNavigationAction label="before" value="before" icon={<NavigateBeforeIcon />} onClick={(counter > 0) ? () => before() : null} />
-                  <BottomNavigationAction label="next" value="next" icon={<NavigateNextIcon />} onClick={(counter !== rows.length - 1) ? () => next() : null} />
+                  <BottomNavigationAction label="before" value="before" icon={<NavigateBeforeIcon />} onClick={(counter > 0) ? () => before() : () => { setCounter(rows.length - 1); setSelRow(rows[rows.length - 1]); }} />
+                  <BottomNavigationAction label="next" value="next" icon={<NavigateNextIcon />} onClick={(counter !== rows.length - 1) ? () => next() : () => { setCounter(0); setSelRow(rows[0]); }} />
                 </BottomNavigation>
               </Card>
             </Grid>
